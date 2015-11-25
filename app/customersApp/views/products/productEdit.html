@@ -1,0 +1,76 @@
+﻿<div class="view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-edit"></span> {{vm.title}} Product</h3>
+        </header>
+        <form name="editForm" novalidate>
+            <div class="productEdit">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                        <br />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        Name:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="firstName" class="form-control" data-ng-model="vm.product.name" required />
+                        <span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">
+                            name is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Description:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="address" class="form-control" data-ng-model="vm.product.description" required />
+                        <span class="errorMessage" ng-show="editForm.address.$touched && editForm.address.$invalid">
+                            Description is required
+                        </span>
+                    </div>
+                </div> 
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        Price:
+                    </div>
+                    <div class="col-md-10">
+                        <input type="number" name="zip" class="form-control" data-ng-model="vm.product.price" required />
+                        <span class="errorMessage" ng-show="editForm.zip.$touched && editForm.zip.$invalid">
+                            Price is required
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" data-ng-click="vm.saveProduct()"
+                                ng-disabled="editForm.$invalid || !editForm.$dirty">
+                            {{vm.buttonText}}
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger" data-ng-if="vm.product.id > 0" data-ng-click="vm.deleteProduct()">Delete</button>
+                    </div>
+                </div>
+                <br />
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-success" data-ng-show="vm.updateStatus">
+                        <span class="glyphicon glyphicon-thumbs-up icon-white"></span>&nbsp;&nbsp;Product updated!
+                    </div>
+                </div>
+                <div class="statusRow">
+                    <br />
+                    <div class="label label-important" data-ng-show="vm.errorMessage">
+                        <span class="glyphicon glyphicon-thumbs-down icon-white"></span>&nbsp;&nbsp;Error: {{ vm.errorMessage }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

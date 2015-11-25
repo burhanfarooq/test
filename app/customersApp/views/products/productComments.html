@@ -1,0 +1,21 @@
+﻿<div class="orders view">
+    <div class="container">
+        <header>
+            <h3><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Customer Orders</h3>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div>
+                        <h4>Orders for <a href="#/productedit/{{vm.product.id}}">{{ vm.product.firstName + ' ' + vm.product.lastName }} <i class="icon-edit editIcon"></i></a></h4>
+                        {{vm.product.address}}
+                        <br />
+                        {{vm.product.city}}, {{vm.product.state.name}}
+                        <br /><br />
+                    </div>
+                    <div data-ng-include="'/app/productsApp/views/orders/ordersTable.html'" data-ng-controller="OrderChildController as vm" />
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
